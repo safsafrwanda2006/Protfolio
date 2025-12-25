@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>protfolio</title>
+    <style>
+body{
+    font-family: 'Inter', sans-serif, Roboto;
+    background: linear-gradient(90deg,#88c4ff,#f0f6fc);
+    /* background-color:#f0f6fc ; */
+    /* background-color: black; */
+    display: block;
+    margin: 0;
+  background-image: url("background2.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #444444;
+}
+header{
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.37);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    /* border: 0.05px solid wheat; */
+    z-index: 1000;
+    height: 15%;
+}
+.name{
+    margin-left: 10%;
+}
+
+.firstline{
+    display: flex;
+    align-items: end;
+    gap: 20px;
+    font-size:larger;
+}
+.intro{
+   margin: 140px 10% 3% 10%;
+    max-width: 700px;
+}
+.firstline img{
+    width: 120px;
+    height:115px;
+    border-radius: 50%;
+}
+
+.litter{
+    color: blue;
+    font-family: "Inter", sans-serif;
+}
+.ChevronDown{
+    margin: 50px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+#ChevronDown{
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    border: 1px solid rgb(226, 226, 250);
+    animation: jomping 0.6s ease-in-out 0s infinite alternate;
+}
+@keyframes jomping {
+    0%{
+transform: translateY(0);
+    }
+    100%{
+transform: translateY(10px);
+    }
+}
+.aboutme{
+    background-color: rgba(255,255,255, 0.37);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+    width: 100%;
+    margin: auto 0px auto 0px;
+    
+}
+.me{
+    margin: 5px 5% 10px 5%;
+}
+.skills{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 5%;
+    background-color: rgba(255,255,255, 0.37);
+    margin: 50px 0px 0px 0px;
+}
+.theskills{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+    gap: 8px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 20px auto;
+}
+.skill{
+    background-color: rgba(21, 48, 107, 0.1);
+    aspect-ratio: 1/1;
+    border-radius: 8px;
+    border: 0.01px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 10px;
+    cursor: pointer;
+    gap: 8px;
+    transition: all ease 0.3s;
+    max-width: 150px;
+}
+.skill:hover{
+    background-color: rgba(10, 22, 49, 0.1);
+    transform: scale(1.05);
+}
+.btns{
+    position:fixed;
+    right: 10%;
+    top: auto;
+    bottom: auto;
+}
+.mbtn{
+    position: relative;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    padding: 10px 10px 7px 10px;
+    cursor: pointer;
+    color: black;
+    text-align: center;
+}
+.mbtn::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.3s ease;
+    transform: translateX(-50%);
+}
+.mbtn:hover::after{
+    width: 100%;
+}
+.menu{
+    display: none;
+}
+.darkmode{
+    border-radius: 50%;
+    height:32px;
+    width: 32px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 5%;
+    right: 3%;
+    background-color: rgba(255,255,255,0.0);
+}
+.darkmode:hover{
+    transform: scale(1.05);
+}
+.darkmode img{
+    padding: 0;
+    margin-left: 0;
+}
+.menuandmode{
+    display: flex;
+}
+body.dark{
+    background:linear-gradient(90deg, #343541,#1e1f25);
+    color: #e0e0e0;
+}
+body.dark header,body.dark .aboutme,body.dark .skills{
+    background-color: rgba(32,33,35,0.8);
+}
+body.dark .mbtn{
+    color: #e0e0e0;
+}
+body.dark .mbtn::after{
+    background-color: #0091f4;
+}
+body.dark .skill{
+    background-color: rgba(255,255,255,0.1);
+}
+body.dark .litter{
+    color: aqua;
+}
+.sidmenu{
+    display: none;
+}
+.projectsCont{
+    text-align: center;
+    padding: 80px 5%;
+    background: rgba(255,255,255,0.35);
+    backdrop-filter: blur(8px);
+}
+body.dark .projectsCont{
+    background: rgba(30,31,37,0.6);
+}
+.projects{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+    margin:auto;
+    max-width: 1200px;
+}
+.project{
+  background: rgba(255,255,255,0.9);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease,box-shadow 0.3s ease;
+  max-width: 300px;
+  margin: auto;
+}
+.project:hover{
+  transform: translateY(-8px);  
+  box-shadow: 0 18px 35px rgba(0,0,0,0.25);
+}
+body.dark .project{
+    background: rgba(40, 41, 48, 0.95);
+    color: #e0e0e0;
+}
+.project img{
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+}
+.projectbtn{
+    display: flex;
+    justify-content: center;
+    gap: 12px ;
+    padding-bottom: 16px;
+}
+.projectbtn button{
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid transparent;
+    background: #0091f4;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.projectbtn button:hover{
+    background: transparent;
+    color: #0091f4;
+    border-color: #0091f4;
+}
+body.dark .projectbtn button{
+    background: #00c2ff;
+    color: black;
+}
+.project-desc{
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+.project-title{
+    padding: 10px 16px 0;
+    font-weight: 600;
+}
+/* thes for the light mode */
+.footer{
+    width: 100%;
+    padding: 60px 0;
+    text-align: center;
+    background-color: #f9f9f9;
+    color: #111;
+}
+
+.footer p{
+    opacity: 0.8;
+}
+
+.social-icons{
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 30px 0;
+}
+
+.social-icons img{
+    width: 32px;
+    filter: grayscale(100%);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-icons img:hover{
+    transform: translateY(-5px);
+    filter: grayscale(0%);
+}
+
+/* thes for the dark mood*/
+body.dark .footer{
+    background-color: #0f0f0f;
+    color: #e5e5e5;
+}
+
+body.dark .footer p{
+    opacity: 0.7;
+}
+
+body.dark .social-icons img{
+    filter: brightness(0.8);
+}
+
+body.dark .social-icons img:hover{
+    filter: brightness(1) drop-shadow(0 0 6px #0091f4);
+}
+/* Experience Section */
+.experience {
+    padding: 60px 10%;
+    /* background-color: transparent;  */
+}
+
+.experience h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    text-decoration: underline;
+}
+.expContent {
+    background-color: rgba(255, 255, 255, 0.37);
+    padding: 40px;
+    margin: 20px auto;
+    max-width: 1000px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+.expContent h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #0f2f5a;
+}
+.expContent ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    line-height: 1.6;
+    color: #1c1c1c;
+}
+body.dark .expContent ul{
+    color: #e0e0e0;
+}
+body.dark .expContent{
+    background-color: rgba(32,33,35,0.8);
+    color: #e0e0e0;
+}
+body.dark .expContent h3 {
+    color: #e9f1f1;
+}
+
+/* Contact Section */
+.contact {
+    padding: 60px 10%;
+    background-color: transparent;
+}
+.contact h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    text-decoration: underline;
+}
+.contactContent {
+    background-color: rgba(255, 255, 255, 0.37);
+    padding: 40px;
+    margin: 20px auto;
+    max-width: 1000px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+.contactContent p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+.contactContent div {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+.contactContent div div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+.contactContent div div img {
+    width: 50px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+.contactContent div div img:hover {
+    transform: scale(1.2);
+}
+body.dark .contactContent {
+    background-color: rgba(32,33,35,0.8);
+    color: #e0e0e0;
+}
+body.dark .contactContent div div p {
+    color: #e0e0e0;
+}
+.animationCon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+}
+.animationdev{
+    max-width: 80%;
+    display: flex;
+    gap: 3px 15px;
+    padding: 2px 30px;
+    border-bottom: 5px solid black;
+    border-top: 5px solid black;
+    text-align: center;
+    height: auto;
+    background: linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,0.5),rgba(255,255,255,0),rgba(255,255,255,0.5),rgba(255,255,255,0));
+    overflow: hidden;
+    
+}
+.animationdev .title{
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.9s ease forwards;
+    animation: fadeUp  0.5s ease 1.5s 1 forwards;
+}
+.animationdev .se{
+    animation-delay: 0.5s;
+}
+.animationdev .and{
+    animation-delay: 1.5s;
+}
+.animationdev .wd{
+    animation-delay: 2.4s;
+}
+
+@keyframes fadeUp {
+    from{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+    
+
+body.dark .animationdev{
+     border-color: white;
+     background: rgba(255,255,255,0.0);
+}
+.project-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    gap: 6px; 
+    width: 35%;
+    padding: 6px 10px;
+    border-radius: 6px;
+    background-color: #0091f4;
+    color: white;
+    text-decoration: none;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.project-btn:hover {
+    background-color: transparent;
+    color: #0091f4;
+    border: 1px solid #0091f4;
+}
+
+.project-btn img {
+    width: 16px;   
+    height: 16px;
+    object-fit: contain;
+}
+
+
+
+
+
+
+
+
+
+
+@media (max-width:1024px) {
+  #experience ,#skills ,#projects,#contact2,#aboutmemenu2{
+    display: none;
+  }
+  .menu{
+    display: block;
+    position: fixed;
+    right: 10%;
+    top: 5.51%;
+    bottom: auto;
+    background-color: rgba(255,255,255,0);
+}
+.menubtn{
+    background-color: rgba(255,255,255,0);
+    border: none;
+    border-radius: 15px;
+}
+.menubtn:hover{
+    transform: scale(1.05);
+}
+.btns{
+    position:fixed;
+    right: 17%;
+    top: auto;
+    bottom: auto;
+}
+.sidmenu{
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 18% 20px 20px 20px;
+    border: none;
+    border-bottom: 1px solid black;
+    background: linear-gradient(180deg, rgba(255,255,255,0),rgba(255,255,255,0), #ffffffcc);
+    animation: sidmenu 0.5s ease 0s 1 normal;
+    z-index: 500;
+}
+@keyframes sidmenu {
+    from{
+         transform: translateX(150px);
+    }
+    to{
+         transform: translateX(0px);
+    }
+}
+.sidmenu button{
+    height: auto;
+    transition: height 0.3s ease , padding 0.3s ease, font-size 0.3s ease;
+}
+.animationdev{
+    font-size: x-small;
+    max-width: 70%;
+    border-top: 4px solid black;
+    border-bottom: 4px solid black;
+}
+
+
+
+
+}
+
+@media (max-width:500px) {
+    #experience2 ,#skills2 ,#projects2,#contact2,#aboutmemenu2{
+    display:block;
+  }
+    .intro{
+   margin: 140px 5% 8% 10%;
+    max-width: 700px;
+    font-size: x-small;
+}
+.intro h1{
+    font-size: xx-larger;
+}
+    .btns{
+        display: none;
+    position: fixed;
+    right: 10%;
+}
+.menu{
+    display: block;
+    position: fixed;
+    right: 13%;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0);
+}
+.menubtn{
+    background-color: rgba(255,255,255,0);
+    border: none;
+    border-radius: 15px;
+}
+.sidmenu{
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 25% 20px 20px 20px;
+    border: none;
+    border-bottom: 1px solid black;
+    background: linear-gradient(180deg, rgba(255,255,255,0),rgba(255,255,255,0),#ffffffcc);
+    animation: sidmenu 0.5s ease 0s 1 normal;
+}
+.animationdev{
+    font-size: xx-small;
+    max-width: 70%;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+}
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="name">
+<h2><b><span class="litter"><b>M</b></span><span class="litter"><b>.KH</b></span></b></h2>
+</div>
+
+<div class="btns">
+    <button class="mbtn" id="contact"><b>Contact</b></button>
+    <button class="mbtn" id="aboutmemenu"><b>About Me</b></button>
+    <button class="mbtn" id="skills"><b>Skills</b></button>
+    <button class="mbtn" id="projects"><b>Projects</b></button>
+    <button class="mbtn" id="experience"><b>Experience</b></button>
+</div>
+
+<div class="menuandmode">
+<div class="menu">
+    <button class="menubtn" id="menubtn">
+    <img src="square (1).png" alt="">
+    </button>
+</div>
+<button class="darkmode" id="darkmode"><img src="sleep-mode.png" alt=""></button>
+</div>
+    </header>
+<div class="sidmenu" id="sidmenu">
+    <button class="mbtn" id="contact2"><b>Contact</b></button>
+    <button class="mbtn" id="aboutmemenu2"><b>About Me</b></button>
+    <button class="mbtn" id="skills2"><b>Skills</b></button>
+    <button class="mbtn" id="projects2"><b>Projects</b></button>
+    <button class="mbtn" id="experience2"><b>Experience</b></button>
+ </div><!--sidmenu -->
+
+    <div class="intro">
+        <div class="firstline">
+<img src="profile.png" alt="">
+  <h1><b><u><span class="litter">M</span>ustafa <span class="litter">Kh</span>amis</u></b></h1>
+  </div>
+<h3><b>Software Engineer & Web Developer | Innovative, Modern Websites & Investment Ideas | Creative Designs & Cutting-Edge Solutions.</b></h3>
+<a href="https://x.com/MKhmys43730"><img src="twitter (1).png" alt=""></a> <a href="https://www.linkedin.com/in/mustafa-hassan-b26ab5370/"> 
+    <img src="linkedin (1).png" alt="LinkedIn"> </a> <a href="https://github.com/safsafrwanda2006"><img src="github-sign.png" alt="GitHub"></a>
+ <a href="http://wa.me/250794101251" target="_blank"><img src="whatsapp.png" alt="WhatsApp"></a> <a href="mailto:safsafrwanda2006@gmail.com"><img src="email.png" alt="Email"></a>   
+</div>
+
+
+
+<div class="animationCon">
+<div class="animationdev">
+    <h1 class="title se">Software Engineer </h1>
+    <h1 class="title and"> &</h1> 
+    <h1 class="title wd">Web D<span class="shado">eveloper</span></h1>
+</div>
+</div>
+
+
+<div class="ChevronDown">
+    <button id="ChevronDown">
+        <img src="down-arrow (2).png" alt="">
+    </button>
+</div>
+
+
+<div class="aboutme" id="aboutme">
+    <h1><b><u>About Me</u></b></h1>
+    <div class="me">
+    <p class="me"><b>Hi, I'm Mustafa Khamis – a passionate Software Engineer & Web Developer. I create innovative, modern websites and apps, blending creative designs with practical investment ideas. Let's build the future together.</b></p>
+    </div>
+</div>
+
+
+<div class="skills" id="skillsfield">
+<h1><b><u>Skills</u></b></h1>
+<div class="theskills">
+
+<div class="skill"><img src="html.png"><h4>HTML</h4></div>
+<div class="skill"><img src="css-3.png"><h4>CSS</h4></div>
+<div class="skill"><img src="java-script.png"><h4>JavaScript</h4></div>
+<div class="skill"><img src="java.png"><h4>Java</h4></div>
+<div class="skill"><img src="atom.png"><h4>React</h4></div>
+<div class="skill"><img src="nodejs (1).png"><h4>Node</h4></div>
+<div class="skill"><img src="database-management.png"><h4>MongoDB</h4></div>
+<div class="skill"><img src="mysql-database.png"><h4>MySQL</h4></div>
+<div class="skill"><img src="jsx.png"><h4>JSX</h4></div>
+<div class="skill"><img src="nodejs.png"><h4>Node.js</h4></div>
+</div><!--theskills-->
+</div>
+
+<div class="projectsCont" id="projectsfield">
+<h1><b><u>Projects</u></b></h1>
+<div class="projects">
+<div class="project">
+      <img src="kigaliSport.png" alt="">
+      <h4 class="project-title">Kigali Sports Booking</h4>
+      <p class="project-desc">A custom web application for seamless football field bookings in Kigali, featuring real-time availability and user-friendly scheduling</p>  
+       <div class="projectbtn">
+       <a href="https://github.com/safsafrwanda2006/fields-app"class="project-btn">Source <img src="sourceblack.png" alt=""></a> 
+        <a href="http://kigalisport.com" class="project-btn">Live <img src="liveblack.png" alt=""></div></a>
+</div>
+<!-- <div class="project">
+      <img src="pharmacy2.png" alt="">
+      <h4 class="project-title">Kigali Sports Booking</h4>
+      <p class="project-desc">A Custome app for booking a football fields in Kigali</p>  
+       <div class="projectbtn" class="project-btn"><button>Source</button> <button>Live</button></div>
+</div> -->
+<div class="project">
+      <img src="wheather.png" alt="">
+      <h4 class="project-title">Wheather Application</h4>
+      <p class="project-desc">A responsive web app that shows real-time weather information for any city, using APIs to fetch current weather data and forecasts.</p>  
+       <div class="projectbtn">
+        <a href="https://github.com/safsafrwanda2006/wheatherApplication"class="project-btn">Source <img src="sourceblack.png" alt=""></a> 
+        <a href="https://safsafrwanda2006.github.io/wheatherApplication/"class="project-btn">Live <img src="liveblack.png" alt=""></div></a>
+</div>
+<div class="project">
+      <img src="quiz.png" alt="">
+      <h4 class="project-title">Simple Quiz App</h4>
+      <p class="project-desc">An interactive quiz application that tests users’ knowledge on various topics, tracks scores, and provides instant feedback for each question.</p>  
+       <div class="projectbtn">
+        <a href="https://github.com/safsafrwanda2006/Simple-Quiz"class="project-btn">Source <img src="sourceblack.png" alt=""> </a>
+       <a href="https://safsafrwanda2006.github.io/Simple-Quiz/"class="project-btn">Live <img src="liveblack.png" alt=""></div></a>
+</div>
+<div class="project">
+      <img src="myprotfolio.png" alt="">
+      <h4 class="project-title">Personal Protfolio</h4>
+      <p>A personal portfolio website showcasing my projects, skills, and experience, designed to highlight my work as a software developer and web designer.</p>  
+       <div class="projectbtn">
+         <a href="https://github.com/safsafrwanda2006/Protfolio"class="project-btn"> Source <img src="sourceblack.png" alt=""></a>
+         <a href="https://safsafrwanda2006.github.io/Protfolio/"class="project-btn">Live <img src="liveblack.png" alt=""></div></a>
+</div>
+
+</div>
+</div>
+
+
+<div class="experience" id="experiencefeild">
+    <h1><b><u>Experience</u></b></h1>
+    <div class="expContent" >
+        <h3><b>Software Engineering Student & Web Developer</b></h3>
+        <ul>
+            <li>Designed and developed websites using <b>HTML, CSS, JavaScript</b></li>
+            <li>Created modern and responsive UI/UX designs</li>
+            <li>Implemented features like <b>Light/Dark Mode</b> and responsive layouts</li>
+            <li>Worked on personal and academic projects using <b>React, Node.js, MySQL, MongoDB</b></li>
+            <li>Used <b>Git & GitHub</b> for version control</li>
+            <li>Continuously learning new web technologies and frameworks</li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+<div class="contact" id="contactfeild">
+    <h1><b><u>Contact</u></b></h1>
+    <div class="contactContent" >
+        <p>I'm available for work, projects, or technical collaborations. Feel free to contact me via:</p>
+        <div >
+            <div><a href="mailto:safsafrwanda2006@gmail.com"><img src="email.png" alt="Email" style="width:40px;"><p>mustafakhamis@gmail.com</p></a></div>
+            <div><a href="http://wa.me/250794101251" target="_blank"><img src="whatsapp.png" alt="WhatsApp" style="width:40px;"><p>+250 794 101 251</p></a></div>
+            <div><a href="https://www.linkedin.com/in/mustafa-hassan-b26ab5370/"><img src="linkedin.png" alt="LinkedIn" style="width:40px;"><p>linkedin.com/in/mustafa-kh-hassan</p></a></div>
+            <div><a href="https://github.com/safsafrwanda2006"><img src="github-sign.png" alt="GitHub" style="width:40px;"><p>github.com/safsafrwanda2006</p></a></div>
+        </div>
+        <p style="margin-top:20px;">I’m always open to new opportunities and collaborations.</p>
+    </div>
+</div>
+
+
+<footer class="footer">
+  <h2>Contact Me</h2>
+  <p>Feel free to reach out for collaboration or opportunities.</p>
+
+  <div class="social-icons">
+    <a href="mailto:safsafrwanda2006@gmail.com"><img src="email.png" alt="Email"></a>
+    <a href="http://wa.me/250794101251" target="_blank"><img src="whatsapp.png" alt="WhatsApp"></a>
+    <a href="https://github.com/safsafrwanda2006"><img src="github-sign.png" alt="GitHub"></a>
+    <a href="https://www.linkedin.com/in/mustafa-hassan-b26ab5370/"><img src="linkedin (1).png" alt="LinkedIn"></a>
+  </div>
+
+  <span>© 2025 Mustafa. All rights reserved.</span>
+</footer>
+
+
+
+
+    <script>
+        const ChevronDown=document.getElementById("ChevronDown");
+        const aboutme=document.getElementById("aboutme");
+        const darkmode=document.getElementById("darkmode");
+        const darkicon=darkmode.querySelector("img");
+        const menubtn=document.getElementById("menubtn");
+        const menubtnicon=menubtn.querySelector("img");
+        const sidmenu=document.getElementById("sidmenu");
+        const experiencefeild=document.getElementById("experiencefeild");
+        const contactfeild=document.getElementById("contactfeild");
+        const skillsfield=document.getElementById("skillsfield");
+        const projectsfield=document.getElementById("projectsfield");
+
+        const aboutmemenu=document.getElementById("aboutmemenu");
+        const contact=document.getElementById("contact");
+        const skills=document.getElementById("skills");
+        const experience=document.getElementById("experience");
+        const projects=document.getElementById("projects");
+        
+        const aboutmemenu2=document.getElementById("aboutmemenu2");
+        const contact2=document.getElementById("contact2");
+        const skills2=document.getElementById("skills2");
+        const experience2=document.getElementById("experience2");
+        const projects2=document.getElementById("projects2");
+        
+        
+
+        aboutmemenu.addEventListener("click",()=>{
+            aboutme.scrollIntoView({behavior:"smooth"});
+        })
+        aboutmemenu2.addEventListener("click",()=>{
+            aboutme.scrollIntoView({behavior:"smooth"});
+        })
+
+        skills.addEventListener("click",()=>{
+            skillsfield.scrollIntoView({behavior:"smooth"});
+        })
+        skills2.addEventListener("click",()=>{
+            skillsfield.scrollIntoView({behavior:"smooth"});
+        })
+
+        projects.addEventListener("click",()=>{
+            projectsfield.scrollIntoView({behavior:"smooth"});
+        })
+        projects2.addEventListener("click",()=>{
+            projectsfield.scrollIntoView({behavior:"smooth"});
+        })
+
+        experience.addEventListener("click",()=>{
+            experiencefeild.scrollIntoView({behavior:"smooth"});
+        })
+        experience2.addEventListener("click",()=>{
+           experiencefeild.scrollIntoView({behavior:"smooth"});
+        })
+
+        contact.addEventListener("click",()=>{
+            contactfeild.scrollIntoView({behavior:"smooth"});
+        })
+        contact2.addEventListener("click",()=>{
+            contactfeild.scrollIntoView({behavior:"smooth"});
+        })
+
+
+
+        ChevronDown.addEventListener("click",()=>{
+            aboutme.scrollIntoView({behavior: "smooth"});
+        });
+        
+
+        function toggleDarkMode(){
+            document.body.classList.toggle("dark");
+            if(document.body.classList.contains("dark")){
+                localStorage.setItem("theme","dark");
+                darkicon.src="brightness.png";
+                menubtnicon.src="square (4).png";
+            }else{
+                localStorage.setItem("theme","light");
+                darkicon.src="sleep-mode.png";
+                menubtnicon.src="square (1).png";
+            }
+        }
+
+
+        const savedTheme=localStorage.getItem("theme");
+        if(savedTheme==="dark"){
+            document.body.classList.add("dark");
+            darkicon.src="brightness.png";
+            menubtnicon.src="square (4).png";
+        }
+
+        darkmode.addEventListener("click",toggleDarkMode);
+    
+
+        menubtn.onclick=function(e){
+            e.stopPropagation();
+            if(sidmenu.style.display==="flex"){
+                sidmenu.style.display="none";
+            }else{
+                sidmenu.style.display="flex";
+            }
+        }
+    sidmenu.addEventListener("click",(e)=>{
+        e.stopPropagation();
+    });
+
+        document.body.addEventListener("click",(e)=>{
+                sidmenu.style.display="none";  
+        })
+
+    </script>
+</body>
+</html>
