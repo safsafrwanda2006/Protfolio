@@ -345,7 +345,7 @@ body.dark{
     background:linear-gradient(90deg,#121212, #343541);
     color: #e0e0e0;
 }
-body.dark header,body.dark .aboutme,body.dark .skills{
+body.dark .aboutme,body.dark .skills{
     background-color: rgba(32,33,35,0.8);
 }
 body.dark .mbtn{
@@ -812,10 +812,15 @@ body.dark .animationdev{
     right: 0;
     padding: 18% 20px 20px 20px;
     border: none;
-    border-bottom: 1px solid black;
+    border-radius: 0px 0px 0px 15px;
+    /* border-bottom: 1px solid rgb(53, 53, 53); */
     background: linear-gradient(180deg, rgba(255,255,255,0),rgba(255,255,255,0), #ffffffcc);
     animation: sidmenu 0.5s ease 0s 1 normal;
     z-index: 500;
+}
+.sidmenu.viewsidmenu{
+    color: black;
+    background: linear-gradient(180deg, rgba(255,255,255,0),rgba(255,255,255,0), #888888,#333);
 }
 @keyframes sidmenu {
     from{
@@ -1489,9 +1494,11 @@ body.dark .animationdev{
     if(window.scrollY>window.innerHeight){
         litter.classList.add("logo");
         menubtnicon.src="square (1).png";
+        sidmenu.classList.add("viewsidmenu");
     }else{
         litter.classList.remove("logo");
         menubtnicon.src="square (4).png";
+        sidmenu.classList.remove("viewsidmenu");
     }
  })
   
