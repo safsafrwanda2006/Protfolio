@@ -392,6 +392,12 @@ body.dark .mbtn::after{ background: var(--brand); }
 /* =========================
    Sections Shared
 ========================= */
+.aboutme{
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
+
+}
 .aboutme,
 .skills{
   background: #F5F5F7;
@@ -948,6 +954,128 @@ body.dark .social-icons img:hover{ filter: brightness(1) drop-shadow(0 0 6px var
   .line{ margin: 0 3%; }
   .projectName{ margin: 20px 0; }
 }
+.about-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1100px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.about-text{
+  flex: 1;
+  min-width: 280px;
+  line-height: 1.7;
+}
+
+.about-image{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.about-image img{
+  width: 100%;
+  max-width: 350px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  transition: transform .3s ease;
+}
+
+.about-image img:hover{
+  transform: scale(1.05);
+}
+
+/* ================= SKILLS FIX ================= */
+.skills-track{
+  width:100%;
+  overflow:hidden;
+  position: relative;
+}
+
+.skills-line{
+  display:flex;
+  gap:40px;
+  width: max-content;
+  animation: scrollSkills 25s linear infinite;
+}
+
+@keyframes scrollSkills{
+  0%{ transform: translateX(0); }
+  100%{ transform: translateX(-50%); }
+}
+
+/* IMPORTANT FIX */
+.skill{
+  min-width: 150px;
+  height: 150px;
+  border-radius: 20px;
+  background: rgba(0,145,244,0.1);
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.skill img{
+  width:40px;
+}
+
+.skill:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* ===== ANIMATION IMPROVED ===== */
+.aboutme,
+.skills,
+.contact,
+.experience{
+  opacity:0;
+  transform: translateY(60px);
+}
+
+.show{
+  animation: fadeUp .8s ease forwards;
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform: translateY(60px);
+  }
+  to{
+    opacity:1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  .about-wrapper{
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .skills-line{
+    gap:25px;
+  }
+
+  .skill{
+    min-width:120px;
+    height:120px;
+  }
+}
+.contact{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
     </style>
 </head>
 <body>
@@ -1080,21 +1208,28 @@ body.dark .social-icons img:hover{ filter: brightness(1) drop-shadow(0 0 6px var
     </div>
   </div>
 </section>
-
+<!-- aboutme -->
 <div class="aboutme" id="aboutme">
-    <h1><b><u>About Me</u></b></h1>
-    <div class="expContent me">
-        
-    <p class="me"><b>Hi, I'm Mustafa Khamis – 
-        a passionate Software Engineer & Web Developer. 
-        I create innovative, modern websites and apps, 
-        blending creative designs with practical investment ideas. 
-        Let's build the future together.</b></p>
-    <p class="me"><b>  With a strong foundation in both front-end and back-end technologies,
-         I specialize in creating responsive, user-friendly experiences that delight users and drive results.
-          I’m always exploring new tools and techniques to push the boundaries of digital 
-          design and development</b></p>
+  <h1><b><u>About Me</u></b></h1>
+
+  <div class="about-wrapper">
+    <div class="about-text">
+      <p>
+        Hi, I'm Mustafa Khamis – a passionate Software Engineer & Web Developer.
+        I build modern, high-performance websites and applications with a focus
+        on clean design and real-world impact.
+      </p>
+
+      <p>
+        I specialize in creating responsive, user-friendly interfaces combined
+        with solid backend systems, always aiming for performance and scalability.
+      </p>
     </div>
+
+    <div class="about-image">
+      <img src="aboutme2.jpeg" alt="About Mustafa" />
+    </div>
+  </div>
 </div>
 
 
